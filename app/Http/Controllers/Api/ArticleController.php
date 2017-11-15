@@ -7,5 +7,10 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
-    //
+    public function list(Request $request){
+        $list = Article::list();
+        //todo 
+        //
+        return $this->success($list);
+    }
 }
