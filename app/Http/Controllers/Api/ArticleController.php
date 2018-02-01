@@ -4,13 +4,21 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Article;
 
 class ArticleController extends Controller
 {
-    public function list(Request $request){
-        $list = Article::list();
-        //todo 
-        //
-        return $this->success($list);
+    public function getList(){
+        $articleList = Article::all();
+
+        return $this->success($articleList);
+    }
+
+    public function getOne(Request $request){
+        //$id = (int)$request-input('id');
+        $id = 2 ;
+        $article = Article::getOne($id);
+
+        return $this->success($article);
     }
 }

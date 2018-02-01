@@ -11,6 +11,34 @@
 |
 */
 
+/**
+ * 前台
+ */
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['namespace' => 'Api'], function() {
+    // User
+    Route::get('/index', 'UserController@getUserInfo');
+
+    // Article
+    Route::get('/articlelist', 'ArticleController@getList'); 
+    Route::get('/article', 'ArticleController@getOne');
+
+    // Comment
+    Route::get('/comments', 'CommentsController@getComments');
+});
+
+
+
+
+/**
+ * 后台
+ */
+
+
+
+
+
+

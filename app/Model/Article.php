@@ -12,10 +12,11 @@ class Article extends Model
         'author',
         'comment',
         'pic_url',
+        'content',
         'article_click',
         'article_category',
-        'created',
-        'updated',
+        'created_at',
+        'updated_at',
         'tag',
         'is_up',
     ];
