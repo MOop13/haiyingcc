@@ -15,8 +15,7 @@ class ArticleController extends Controller
     }
 
     public function getOne(Request $request){
-        //$id = (int)$request-input('id');
-        $id = 2 ;
+        $id = intval($request->input('article_id'));
         $article = Article::getOne($id);
 
         return $this->success($article);
