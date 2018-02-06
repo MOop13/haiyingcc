@@ -28,6 +28,13 @@ Route::group(['namespace' => 'Api'], function() {
 
     // Comment
     Route::get('/comments', 'CommentsController@getComments');
+
+    // Category
+    Route::get('/addcategory', 'CategoryController@addCategory');
+    Route::get('/updatecategory', 'CategoryController@updateCategory');
+    Route::get('/deletecategory', 'CategoryController@delCategory');
+
+
 });
 
 

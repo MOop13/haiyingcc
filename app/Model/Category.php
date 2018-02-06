@@ -26,4 +26,25 @@ class Category extends Model
 
         return $result;
     }
+
+    public static function addCategory($name){
+        $result = self::insert(['name' => $name]);
+        
+        return $result;
+    }
+
+
+    public static function updateCategory($data){
+        $result = self::query()->find($data['id']);
+        $result->update($data);
+
+        return $result;
+    }
+
+    public static function delCategory($arr){
+        $result = self::destroy($arr);
+        
+        return $result;
+    }
+
 }
