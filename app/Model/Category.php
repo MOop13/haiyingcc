@@ -16,11 +16,11 @@ class Category extends Model
     ];
 
     public static function getList(){
-        $result = self::get();
+        $result = self::get()->toArray();
 
         return $result;
     }
-    
+   
     public static function getOne($id){
         $result = self::find($id);
 
@@ -33,7 +33,6 @@ class Category extends Model
         return $result;
     }
 
-
     public static function updateCategory($data){
         $result = self::query()->find($data['id']);
         $result->update($data);
@@ -45,6 +44,14 @@ class Category extends Model
         $result = self::destroy($arr);
         
         return $result;
+    }
+
+
+    // 确定分类是否存在，返回布尔值
+    public static function existCategory($name){
+        $arr = self::select()->pluck('name')->toArray();
+
+        return in_array($name, $arr);
     }
 
 }

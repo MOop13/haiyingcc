@@ -15,15 +15,14 @@ class CategoryController extends Controller
     }
 
     public function addCategory(Request $request){
-        $name = $request->input('name');
-        // 另一种写法 实例化对象的方法,而不用eloquent 
-//        $category = new Category;
-//        $category->name = $name;
-//
-//        $result = $category->save();
-        $result = Category::addCategory($name);
-        return $this->success($result);
-    
+        $name = trim($request->input('name'));
+        $exist = Category::existCategory($name);
+        if($exist == true){
+            return $this->fail('error_code', '已存在该类别');
+        }else{
+            $result = Category::addCategory($name);
+            return $this->success($result);
+        }
     }
 
     public function updateCategory(Request $request){

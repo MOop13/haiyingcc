@@ -30,11 +30,13 @@ Route::group(['namespace' => 'Api'], function() {
     Route::get('/comments', 'CommentsController@getComments');
 
     // Category
+    Route::get('/getcategorylist', 'CategoryController@getCategory');
     Route::get('/addcategory', 'CategoryController@addCategory');
     Route::get('/updatecategory', 'CategoryController@updateCategory');
     Route::get('/deletecategory', 'CategoryController@delCategory');
 
-
+    // Error
+    Route::get('/error/{errorCode}', 'ErrorController@getErrorPage');
 });
 
 
