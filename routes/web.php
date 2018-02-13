@@ -18,7 +18,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['namespace' => 'Api'], function() {
+Route::group(['namespace' => 'Api', 'prefix' => 'api'], function() {
     // User
     Route::get('/index', 'UserController@getUserInfo');
 
@@ -46,6 +46,26 @@ Route::group(['namespace' => 'Api'], function() {
  * 后台
  */
 
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    // User
+    Route::get('/index', 'UserController@getUserInfo');
+
+    // Article
+    Route::get('/articlelist', 'ArticleController@getList'); 
+    Route::get('/article', 'ArticleController@getOne');
+    Route::get('/articleadd', 'ArticleController@addArticle');
+    Route::get('/articledel', 'ArticleController@delArticle');
+
+    // Comment
+    Route::get('/comments', 'CommentsController@getComments');
+
+    // Category
+    Route::get('/getcategorylist', 'CategoryController@getCategory');
+    Route::get('/addcategory', 'CategoryController@addCategory');
+    Route::get('/updatecategory', 'CategoryController@updateCategory');
+    Route::get('/deletecategory', 'CategoryController@delCategory');
+
+});
 
 
 

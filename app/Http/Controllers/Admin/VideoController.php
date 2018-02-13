@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,7 +41,7 @@ class VideoController extends Controller
     }
 
     public function deleteVideo(Reuest $request){
-        $ids = trim($request->input('ids'));
+        $ids = $request->input($ids);
         $arr = explode(',', $ids);
         $result = Video::delVideo($arr);
 

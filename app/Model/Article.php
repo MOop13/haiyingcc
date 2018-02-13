@@ -32,4 +32,16 @@ class Article extends Model
 
         return $result;
     }
+
+    public static function addArticle($data){
+        $result = self::insert($data);
+
+        return $result;
+    }
+
+    public static function delArticle($arr){
+        $result = self::destroy($arr);
+
+        return $result;
+    }
 }
