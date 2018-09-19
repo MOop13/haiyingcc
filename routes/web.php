@@ -48,7 +48,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function() {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     // User
-    Route::get('/index', 'UserController@getUserInfo');
+    //Route::get('/index', 'UserController@getUserInfo');
 
     // Article
     Route::get('/articlelist', 'ArticleController@getList'); 
