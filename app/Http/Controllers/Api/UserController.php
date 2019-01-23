@@ -11,6 +11,6 @@ class UserController extends Controller
     public function getUserInfo(){
         $user = User::getUser();
 
-        return $user; 
+       return  $this->success($user);
     }
 }
