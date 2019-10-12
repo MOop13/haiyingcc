@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     //
-    protected $table = 'tb_user';
+    protected $table = 'users';
     protected $fillable = [
         'user_name',
         'gender',
@@ -20,9 +20,16 @@ class User extends Model
     ];
 
     // 我的想法是只有一个用户,这是一个个人博客，并且不支持其他人注册
-    static function getUser(){
+    static function getUserList(){
         $user = self::all();
 
         return $user;
     }
+
+    static function getUserInfo($uid){
+        $user = self::where('id', $uid)->get();
+
+        return $user;
+    }
+
 }

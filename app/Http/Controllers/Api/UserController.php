@@ -8,9 +8,17 @@ use App\Model\User;
 
 class UserController extends Controller
 {
-    public function getUserInfo(){
-        $user = User::getUser();
+    
+    public function getUserList(){
+        $user = User::getUserList();
 
        return  $this->success($user);
     }
+
+    public function getUserInfo($uid){
+        $user = User::getUserInfo($uid);
+
+       return  $this->success($user);
+    }
+
 }
