@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    protected $table = 'tb_video';
+    protected $table = 'video';
     protected $fillable = [
         'name',
         'type',

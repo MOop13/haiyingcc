@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     // 分类
-    protected $table = 'tb_category';
+    protected $table = 'category';
     protected $fillable = [
         'name',
         'type',

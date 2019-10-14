@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    //
-    protected $table = 'tb_comment';
+    protected $table = 'comment';
     protected $fillable = [
         'article_id',
         'user_id',
@@ -15,6 +14,7 @@ class Comment extends Model
         'guest_name',
         'guest_email',
         'created_at',
+        'updated_at',
     ];
 
     public static function getList($id){

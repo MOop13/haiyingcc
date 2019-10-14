@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $table = 'tb_article';
+    protected $table = 'article';
     protected $fillable = [
         'title',
         'author',
-        'comment',
         'pic_url',
         'content',
         'article_click',
