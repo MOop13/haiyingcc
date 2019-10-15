@@ -20,4 +20,12 @@ class ArticleController extends Controller
 
         return $this->success($article);
     }
+
+    public function show($id){
+        //$id = intval($request->input('id'));
+        $article = Article::getOne($id);
+        return $this->success($article);
+    }
+
+
 }

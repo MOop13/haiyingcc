@@ -8,6 +8,7 @@ class Article extends Model
 {
     protected $table = 'article';
     protected $fillable = [
+        'id',
         'title',
         'author',
         'pic_url',
@@ -28,13 +29,24 @@ class Article extends Model
 
     public static function getOne($id){
         $result = self::find($id);
-
         return $result;
     }
 
     public static function addArticle($data){
         $result = self::insert($data);
 
+        return $result;
+    }
+
+    public static function create($data){
+        $result = self::insert($data);
+        return $result;
+    }
+
+    public  function updateArticle($data, $id){
+        $result = DB::table('article')
+            ->where(['id', $data['id']])
+            ->update($data);
         return $result;
     }
 
