@@ -20,6 +20,14 @@ class Controller extends BaseController
         return response()->json(['code' => $code, 'data' => $data]);
     }
     
+    protected function rest_success($data = 'success'){
+        return response()->json(['code' => '200', 'data' => $data]);
+    }
+
+    protected function rest_fail($code, $data = 'fail'){
+        return response()->json(['code' => $code, 'data' => $data]);
+    }
+ 
     protected function failArr(array $arr) {
        return response()->json(['code' => $arr[0], 'data' => $arr[1]]);
     }

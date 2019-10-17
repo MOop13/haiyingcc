@@ -54,6 +54,9 @@ Route::group(['namespace' => 'REST'], function() {
     Route::delete('/articles/{id}', 'ArticleController@delete');
 
     // Comment
+    Route::get('/comments/{id}', 'CommentsController@show');
+    Route::post('/comments', 'CommentsController@store');
+    Route::delete('/comments/{id}', 'CommentsController@delete');
 
     // Category
     Route::get('/categories', 'CategoryController@index');

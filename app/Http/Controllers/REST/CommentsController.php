@@ -8,15 +8,14 @@ use App\Model\Comment;
 
 class CommentsController extends Controller
 {
-    public function getComments(Request $request){
-        $article_id = intval($request->input('article_id'));
-        $commentList = Comment::getList($article_id);
-
-        return $this->success($commentList); 
+    public function show($article_id){
+        $commentList = Comment::getCommentList($article_id);
+        return $this->rest_success($commentList); 
     }
 
-    public function addComments(Request $request){
-        $article_id = intval($request->input('article_id'));
+    public function store(Request $request)
+    {
+        $article_id = trim($request->input('id'));
         $comment = trim($request->input('comment'));
         $email = trim($request->input('email'));
         $nickname = trim($request->input('nickname'));
@@ -27,15 +26,14 @@ class CommentsController extends Controller
             'guest_email' => $email,
         ];
         $commentList = Comment::addComment($data);
-
-        return $this->success($commentList); 
+        return $this->rest_success($commentList); 
     }
 
-    public function delComments(Request $request){
-        $article_id = intval($request->input('article_id'));
-        $commentList = Comment::getList($article_id);
-
-        return $this->success($commentList); 
+    public function delete($id, Request $request){
+        $comment_id = intval($request->input('comment_id'));
+        $data = array('id' => $comment_id, 'article_id' => $id);
+        $result = Comment::delComment($data)? '删除成功' : '资源不存在' ;
+        return $this->rest_success($result); 
     }
 
 }

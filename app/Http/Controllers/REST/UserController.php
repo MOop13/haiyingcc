@@ -12,13 +12,13 @@ class UserController extends Controller
     public function getUserList(){
         $user = User::getUserList();
 
-       return  $this->success($user);
+       return  $this->rest_success($user);
     }
 
     public function getUserInfo($uid){
         $user = User::getUserInfo($uid);
 
-       return  $this->success($user);
+       return  $this->rest_success($user);
     }
 
 }

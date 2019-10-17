@@ -11,7 +11,7 @@ class VideoController extends Controller
     public function getVideo(){
         $video = Video::all();
 
-        return $this->success($video);
+        return $this->rest_success($video);
     }
 
     public function addVideo(Request $request){
@@ -21,7 +21,7 @@ class VideoController extends Controller
         $data = ['name' => $name, 'desc' => $desc, 'url'=>$url];
         $result = Video::addVideo($data);
 
-        return $this->success($result);
+        return $this->rest_success($result);
     }
 
     public function modifyVideo(Request $request){
@@ -37,7 +37,7 @@ class VideoController extends Controller
         ];
         $result = Video::updateVideo($data);
     
-        return $this->success($result);
+        return $this->rest_success($result);
     }
 
     public function deleteVideo(Reuest $request){
@@ -45,6 +45,6 @@ class VideoController extends Controller
         $arr = explode(',', $ids);
         $result = Video::delVideo($arr);
 
-        return $this->success($result);
+        return $this->rest_success($result);
     }
 }

@@ -11,13 +11,13 @@ class GalleryController extends Controller
     public function getList(Request $request){
         $galleryList = Gallery::all();
         
-        return $this->success($galleryList);
+        return $this->rest_success($galleryList);
     }
 
     public function getOne(Request $request){
         $id = intval($request->input('gallery_id'));
         $gallery = Gallery::getOne($id);
 
-        return $this->success($gallery);
+        return $this->rest_success($gallery);
     }
 }

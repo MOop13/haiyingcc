@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index(){
         $category = Category::all();
-        return $this->success($category);
+        return $this->rest_success($category);
     }
 
     public function show(Request $request){
@@ -21,7 +21,7 @@ class CategoryController extends Controller
             return $this->failArr(ErrorCode::SHOW_ERRNUM_CATEGORY_EXIST);
         }else{
             $result = Category::addCategory($name);
-            return $this->success($result);
+            return $this->rest_success($result);
         }
     }
 
@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $data = ['id' => $id ,'name' => $name];
         $result = Category::updateCategory($data);
 
-        return $this->success($result);
+        return $this->rest_success($result);
     }
 
     public function del(Request $request){
@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $arr = explode(',', $ids);
         $result = Category::delCategory($arr);
 
-        return $this->success($result);
+        return $this->rest_success($result);
     }
 
 }
